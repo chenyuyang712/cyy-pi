@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "exposure": "deferred",
+      "description": "Browser automation with Playwright: navigate, inspect, click, fill, screenshot"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "lastChangelogVersion": "1.0.1",
+  "defaultModel": "wildwork/traework/glm-5.2",
+  "defaultThinkingLevel": "off",
+  "theme": "ghostty-muted",
+  "hideThinkingBlock": true,
+  "quietStartup": "header",
+  "tuiMode": "fullscreen",
+  "outputPad": 0,
+  "fullscreenScrollbar": "hidden",
+  "terminal": {
+    "trueColor": true,
+    "hyperlinks": true,
+    "showImages": false
+  },
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-mcp-adapter",
+    "npm:@tintinweb/pi-subagents",
+    "git:github.com/obra/superpowers",
+    "git:github.com/zhaoxuya520/reverse-skill"
+  ],
+  "extensions": [
+    "-builtin:mcp"
+  ]
+}

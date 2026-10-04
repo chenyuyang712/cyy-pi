@@ -1,0 +1,5 @@
+npm:pi-web-access
+npm:pi-mcp-adapter
+npm:@tintinweb/pi-subagents
+git:github.com/obra/superpowers
+git:github.com/zhaoxuya520/reverse-skill
