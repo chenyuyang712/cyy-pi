@@ -9,42 +9,66 @@
           "name": "智谱 ChatGLM",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "glm/chatglm-think:moe_53f",
           "name": "glm/chatglm-think:moe_53f",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "glm/chatglm-deepresearch:moe_53f",
           "name": "glm/chatglm-deepresearch:moe_53f",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "glm/search",
           "name": "glm/search",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "glm/ppt",
           "name": "glm/ppt",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "glm/video",
           "name": "glm/video",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "oczen/big-pickle",
@@ -205,21 +229,33 @@
           "name": "qodercn/glm-5.3",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "qodercn/glm-5.3-flash",
           "name": "qodercn/glm-5.3-flash",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "qodercn/glm-5.2",
           "name": "QoderCN GLM-5.2",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "qodercn/kimi-k3",
@@ -408,56 +444,88 @@
           "name": "traecode/glm-5.3-flashx",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traecode/glm-5.3-flash",
           "name": "traecode/glm-5.3-flash",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traecode/glm-5.3",
           "name": "traecode/glm-5.3",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traecode/glm-5.2",
           "name": "traecode/glm-5.2",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traecode/glm-5.2_advisor_doubao",
           "name": "traecode/glm-5.2_advisor_doubao",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traecode/glm-5.1",
           "name": "traecode/glm-5.1",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traecode/glm-5.1_advisor",
           "name": "traecode/glm-5.1_advisor",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traecode/glm-5.2_advisor_default",
           "name": "traecode/glm-5.2_advisor_default",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traecode/glm-5",
@@ -681,14 +749,22 @@
           "name": "traework/glm-5.3",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traework/glm-5.2",
           "name": "TraeWork GLM-5.2",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "traework/glm-5-turbo",
@@ -863,28 +939,44 @@
           "name": "workbuddy/glm-5.3",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "workbuddy/glm-5.3-flash",
           "name": "workbuddy/glm-5.3-flash",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "workbuddy/glm-5.2",
           "name": "workbuddy/glm-5.2",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "workbuddy/glm-5.1",
           "name": "workbuddy/glm-5.1",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "workbuddy/glm-5v-turbo",
@@ -1038,14 +1130,22 @@
           "name": "workbuddyai/glm-5.3",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "workbuddyai/glm-5.2",
           "name": "workbuddyai/glm-5.2",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "workbuddyai/kimi-k3",
@@ -1094,7 +1194,11 @@
           "name": "workbuddyai/glm-5.3-flash",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "workbuddyai/hy4-preview-f",
@@ -1129,7 +1233,11 @@
           "name": "workbuddyai/glm-5.1",
           "contextWindow": 114688,
           "maxTokens": 32768,
-          "reasoning": true
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ]
         },
         {
           "id": "workbuddyai/glm-5v-turbo",
