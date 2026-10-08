@@ -11,8 +11,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -22,8 +21,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -33,8 +31,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -44,8 +41,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -55,8 +51,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -66,8 +61,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -253,8 +247,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -446,8 +439,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -457,8 +449,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -468,8 +459,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -479,8 +469,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -490,8 +479,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -501,8 +489,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -512,8 +499,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -523,8 +509,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -751,8 +736,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -762,8 +746,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -941,8 +924,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -952,8 +934,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -963,8 +944,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -974,8 +954,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -1132,8 +1111,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -1143,8 +1121,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -1196,8 +1173,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
@@ -1235,8 +1211,7 @@
           "maxTokens": 32768,
           "reasoning": true,
           "input": [
-            "text",
-            "image"
+            "text"
           ]
         },
         {
