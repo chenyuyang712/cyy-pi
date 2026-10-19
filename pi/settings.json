@@ -1,15 +1,16 @@
 {
-  "defaultModel": "wildwork/traework/glm-5.2",
+  "lastChangelogVersion": "1.2.0",
+  "defaultModel": "opencode/beam-free",
   "defaultThinkingLevel": "off",
-  "theme": "terminal-flat",
+  "theme": "ghostty-muted",
   "hideThinkingBlock": true,
   "quietStartup": "header",
   "tuiMode": "fullscreen",
   "outputPad": 0,
   "fullscreenScrollbar": "hidden",
   "terminal": {
-    "trueColor": "auto",
-    "hyperlinks": "auto",
+    "trueColor": true,
+    "hyperlinks": true,
     "showImages": false
   },
   "packages": [
@@ -21,8 +22,5 @@
   ],
   "extensions": [
     "-builtin:mcp"
-  ],
-  "defaultTools": [
-    "+powershell"
   ]
 }

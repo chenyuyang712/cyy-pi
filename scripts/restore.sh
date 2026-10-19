@@ -5,7 +5,7 @@
 # Usage:
 #   ./scripts/restore.sh
 #   PI_DIR=/custom/path ./scripts/restore.sh          # custom agent dir
-#   export WILDWORK_API_KEY='sk-...' ./scripts/restore.sh   # also writes models.json
+#   QSEAN_GATEWAY_KEY='...' OPENCODE2API_GATEWAY_KEY='...' ./scripts/restore.sh
 #   SKIP_PACKAGES=1 ./scripts/restore.sh              # skip `pi install`
 set -euo pipefail
 
@@ -60,14 +60,13 @@ fi
 
 # ---- 3. Other configuration files ----
 install -m 600 "$REPO_ROOT/pi/mcp.json" "$PI_DIR/mcp.json"
-install -m 644 "$REPO_ROOT/pi/extensions/wild-work-usage.ts" "$PI_DIR/extensions/wild-work-usage.ts"
 install -m 644 "$REPO_ROOT/pi/themes/"*.json "$PI_DIR/themes/"
 echo "  mcp.json, extensions, themes"
 
 # ---- 4. models.json from template (+ optional API key) ----
 TEMPLATE="$REPO_ROOT/pi/models.template.json"
 TARGET="$PI_DIR/models.json"
-if [[ -f "$TEMPLATE" && ( ! -f "$TARGET" || -n "${WILDWORK_API_KEY:-}" ) ]]; then
+if [[ -f "$TEMPLATE" && ( ! -f "$TARGET" || -n "${QSEAN_GATEWAY_KEY:-}" || -n "${OPENCODE2API_GATEWAY_KEY:-}" ) ]]; then
   echo ""
   echo "=== Writing models.json ==="
   PYTHON_BIN=""
@@ -77,7 +76,7 @@ if [[ -f "$TEMPLATE" && ( ! -f "$TARGET" || -n "${WILDWORK_API_KEY:-}" ) ]]; the
     echo "WARNING: python not found; copy models.template.json to models.json manually." >&2
   fi
   if [[ -n "$PYTHON_BIN" ]]; then
-    WILDWORK_API_KEY="${WILDWORK_API_KEY:-}" "$PYTHON_BIN" - "$TEMPLATE" "$TARGET" <<'PY'
+    QSEAN_GATEWAY_KEY="${QSEAN_GATEWAY_KEY:-}" OPENCODE2API_GATEWAY_KEY="${OPENCODE2API_GATEWAY_KEY:-}" "$PYTHON_BIN" - "$TEMPLATE" "$TARGET" <<'PY'
 import json
 import os
 import pathlib
@@ -85,10 +84,13 @@ import sys
 
 source, target = map(pathlib.Path, sys.argv[1:])
 data = json.loads(source.read_text())
-key = os.environ.get("WILDWORK_API_KEY", "")
-for provider in data.get("providers", {}).values():
-    if key:
-        provider["apiKey"] = key
+keys = {
+    "agent2api": os.environ.get("QSEAN_GATEWAY_KEY", ""),
+    "opencode": os.environ.get("OPENCODE2API_GATEWAY_KEY", ""),
+}
+for name, key in keys.items():
+    if key and name in data.get("providers", {}):
+        data["providers"][name]["apiKey"] = key
 target.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 try:
     target.chmod(0o600)
@@ -99,7 +101,7 @@ PY
   fi
 else
   echo ""
-  echo "models.json already exists; left untouched (set WILDWORK_API_KEY to overwrite the key)."
+  echo "models.json already exists; left untouched (set gateway key variables to overwrite)."
 fi
 
 # ---- Done ----
@@ -109,12 +111,12 @@ case "$PLATFORM" in
   windows)
     echo "Next steps:"
     echo "  1. Restart Pi or run /reload inside Pi."
-    echo "  2. Run /settings to confirm theme = terminal-flat."
+    echo "  2. Run /settings to confirm theme = ghostty-muted."
     echo "  3. Git Bash is required for ! commands; the powershell tool is enabled via defaultTools."
     ;;
   *)
     echo "Next steps:"
     echo "  1. Restart Pi or run /reload inside Pi."
-    echo "  2. Run /settings to confirm theme = terminal-flat."
+    echo "  2. Run /settings to confirm theme = ghostty-muted."
     ;;
 esac

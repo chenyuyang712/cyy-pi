@@ -4,14 +4,15 @@
 # Usage (in PowerShell):
 #   .\scripts\restore.ps1
 #   .\scripts\restore.ps1 -PiDir "D:\somewhere\.pi\agent"
-#   .\scripts\restore.ps1 -ApiKey "sk-..."          # also writes models.json
+#   .\scripts\restore.ps1 -QseanKey "..." -OpencodeKey "..."
 #   .\scripts\restore.ps1 -SkipPackages             # skip `pi install`
 #
-# Or from Git Bash:  WILDWORK_API_KEY=sk-... powershell -ExecutionPolicy Bypass -File scripts/restore.ps1
+# Or from Git Bash:  QSEAN_GATEWAY_KEY=... OPENCODE2API_GATEWAY_KEY=... powershell -ExecutionPolicy Bypass -File scripts/restore.ps1
 
 param(
     [string]$PiDir = "",
-    [string]$ApiKey = "",
+    [string]$QseanKey = "",
+    [string]$OpencodeKey = "",
     [switch]$SkipPackages
 )
 
@@ -79,25 +80,20 @@ $settingsJson = [regex]::Replace($settingsJson, "\\u([0-9a-fA-F]{4})", {
 [System.IO.File]::WriteAllText((Join-Path $PiDir "settings.json"), $settingsJson + "`n", (New-Object System.Text.UTF8Encoding($false)))
 
 Copy-Item (Join-Path $repoRoot "pi\mcp.json")              (Join-Path $PiDir "mcp.json") -Force
-Copy-Item (Join-Path $repoRoot "pi\extensions\wild-work-usage.ts") (Join-Path $PiDir "extensions\wild-work-usage.ts") -Force
 Copy-Item (Join-Path $repoRoot "pi\themes\*.json")         (Join-Path $PiDir "themes\") -Force
-Write-Host "  settings.json, mcp.json, extensions, themes -> OK"
+Write-Host "  settings.json, mcp.json, themes -> OK"
 
 # ---- 3. models.json from template (+ optional API key) ----
 $template = Join-Path $repoRoot "pi\models.template.json"
 $target   = Join-Path $PiDir "models.json"
-$needModels = (Test-Path $template) -and (-not (Test-Path $target) -or $ApiKey)
+$needModels = (Test-Path $template) -and (-not (Test-Path $target) -or $QseanKey -or $OpencodeKey)
 
 if ($needModels) {
     Write-Host "`n=== Writing models.json ==="
     $models = Get-Content $template -Raw -Encoding UTF8 | ConvertFrom-Json
-    if ($ApiKey) {
-        $models.providers.wildwork.apiKey = $ApiKey
-        Write-Host "  API key written into models.json (file contains your key, do not commit it)"
-    }
-    else {
-        Write-Warning "models.json does not exist and no -ApiKey given; wrote template with `${WILDWORK_API_KEY} placeholder. Set the key later (e.g. via /models) or re-run with -ApiKey."
-    }
+    if ($QseanKey) { $models.providers.qsean.apiKey = $QseanKey }
+    if ($OpencodeKey) { $models.providers.opencode.apiKey = $OpencodeKey }
+    Write-Host "  gateway keys written into models.json (file contains secrets, do not commit it)"
     $modelsJson = $models | ConvertTo-Json -Depth 32
     $modelsJson = [regex]::Replace($modelsJson, "\\u([0-9a-fA-F]{4})", {
         param($m) [char][Convert]::ToInt32($m.Groups[1].Value, 16)
@@ -106,7 +102,7 @@ if ($needModels) {
     Write-Host "  models.json -> OK"
 }
 else {
-    Write-Host "`nmodels.json already exists; left untouched (use -ApiKey to overwrite the key)."
+    Write-Host "`nmodels.json already exists; left untouched (use gateway key options to overwrite)."
 }
 
 # ---- Done ----
@@ -114,5 +110,5 @@ Write-Host ""
 Write-Host "Pi configuration restored to: $PiDir" -ForegroundColor Green
 Write-Host "Next steps:"
 Write-Host "  1. Restart Pi or run /reload inside Pi."
-Write-Host "  2. Run /settings to confirm theme = terminal-flat."
+Write-Host "  2. Run /settings to confirm theme = ghostty-muted."
 Write-Host "  3. If the powershell tool misbehaves, remove 'defaultTools' from settings.json."

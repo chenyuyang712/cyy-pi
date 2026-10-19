@@ -1,17 +1,16 @@
 # Pi configuration backup
 
-Portable backup of the Pi (pi.dev) coding-agent setup, synced from a Windows
-machine and restorable on macOS, Linux, and other Windows machines.
+Portable backup of the Pi (pi.dev) coding-agent setup using the agent2api and
+opencode2api gateways, restorable on macOS, Linux, and Windows machines.
 
 ## Included
 
-- `pi/settings.json` — UI and package settings (theme: `terminal-flat`)
+- `pi/settings.json` — UI and package settings (theme: `ghostty-muted`)
 - `pi/mcp.json` — MCP server configuration (Playwright)
 - `packages.txt` — installed Pi package sources
-- `pi/extensions/wild-work-usage.ts` — the wild-work usage extension
-- `pi/themes/` — both themes (`terminal-flat`, `ghostty-muted`)
-- `pi/models.template.json` — sanitized wild-work model catalog
-  (`apiKey` is the `${WILDWORK_API_KEY}` placeholder)
+- `pi/themes/` — the `ghostty-muted` theme
+- `pi/models.template.json` — sanitized agent2api/opencode2api model catalog
+  (`apiKey` values are environment-variable placeholders)
 - `scripts/restore.sh` — restore for macOS / Linux / Git Bash
 - `scripts/restore.ps1` — restore for native Windows (PowerShell)
 
@@ -21,6 +20,15 @@ machine and restorable on macOS, Linux, and other Windows machines.
 - Pi session transcripts and caches (`mcp-cache.json`, `models-store.json`, …)
 - SSH keys and other private files
 
+## Gateway setup
+
+- agent2api API: `https://agent2api.chenyuyang.tech/v1`
+- opencode2api API: `https://opencode2api.chenyuyang.tech/v1`
+- The agent2api server must be populated with your own provider accounts through
+  its management panel.
+- The initial opencode2api server uses anonymous mode for smoke testing; add
+  your own Zen/Go key and disable anonymous mode before relying on it.
+
 ## Restore on Windows (native)
 
 Requirements: Node.js ≥ 22.19, Git for Windows (Bash), optional Python.
@@ -28,7 +36,7 @@ Requirements: Node.js ≥ 22.19, Git for Windows (Bash), optional Python.
 ```powershell
 git clone https://github.com/chenyuyang712/cyy-pi.git
 cd cyy-pi
-powershell -ExecutionPolicy Bypass -File scripts\restore.ps1 -ApiKey "sk-..."
+powershell -ExecutionPolicy Bypass -File scripts\restore.ps1 -QseanKey "..." -OpencodeKey "..."
 ```
 
 The script:
@@ -46,7 +54,7 @@ Custom agent directory: `.\scripts\restore.ps1 -PiDir "D:\path\.pi\agent"`
 ```bash
 git clone https://github.com/chenyuyang712/cyy-pi.git
 cd cyy-pi
-WILDWORK_API_KEY='sk-...' ./scripts/restore.sh
+QSEAN_GATEWAY_KEY='...' OPENCODE2API_GATEWAY_KEY='...' ./scripts/restore.sh
 ```
 
 ## Cross-platform notes
@@ -63,8 +71,7 @@ WILDWORK_API_KEY='sk-...' ./scripts/restore.sh
   hardcoded `true`).
 - `lastChangelogVersion` is removed from the stored settings; Pi manages it
   per machine.
-- The theme `terminal-flat` is the active one; `ghostty-muted` is kept as an
-  alternative (it was the original Mac setup's theme).
+- The theme `ghostty-muted` is the active one.
 - The repo contains reverse-engineering and security *skills* (via the
   `reverse-skill` package), but it does not install external tools such as
   Frida, Ghidra, IDA Pro, Burp Suite, jadx, or radare2. Install those
@@ -73,6 +80,5 @@ WILDWORK_API_KEY='sk-...' ./scripts/restore.sh
 ## After restoring
 
 1. Restart Pi or run `/reload` inside Pi.
-2. Run `/settings` to confirm **Theme = terminal-flat** (user input renders in
-   sky blue, AI output in the normal text color).
-3. Run `/models` to confirm the wild-work provider works.
+2. Run `/settings` to confirm **Theme = ghostty-muted**.
+3. Run `/models` to confirm the agent2api and opencode2api providers work.
