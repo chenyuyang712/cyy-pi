@@ -91,7 +91,7 @@ $needModels = (Test-Path $template) -and (-not (Test-Path $target) -or $QseanKey
 if ($needModels) {
     Write-Host "`n=== Writing models.json ==="
     $models = Get-Content $template -Raw -Encoding UTF8 | ConvertFrom-Json
-    if ($QseanKey) { $models.providers.qsean.apiKey = $QseanKey }
+    if ($QseanKey) { $models.providers.denni.apiKey = $QseanKey }
     if ($OpencodeKey) { $models.providers.opencode.apiKey = $OpencodeKey }
     Write-Host "  gateway keys written into models.json (file contains secrets, do not commit it)"
     $modelsJson = $models | ConvertTo-Json -Depth 32

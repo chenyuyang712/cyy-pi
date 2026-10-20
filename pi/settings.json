@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "1.2.0",
-  "defaultModel": "opencode/beam-free",
+  "defaultModel": "agent2api/auto",
   "defaultThinkingLevel": "off",
   "theme": "ghostty-muted",
   "hideThinkingBlock": true,
