@@ -5,7 +5,7 @@
 # Usage:
 #   ./scripts/restore.sh
 #   PI_DIR=/custom/path ./scripts/restore.sh          # custom agent dir
-#   QSEAN_GATEWAY_KEY='...' OPENCODE2API_GATEWAY_KEY='...' ./scripts/restore.sh
+#   QSEAN_GATEWAY_KEY='...' OPENCODE_FREE_GATEWAY_KEY='...' ./scripts/restore.sh
 #   SKIP_PACKAGES=1 ./scripts/restore.sh              # skip `pi install`
 set -euo pipefail
 
@@ -66,7 +66,7 @@ echo "  mcp.json, extensions, themes"
 # ---- 4. models.json from template (+ optional API key) ----
 TEMPLATE="$REPO_ROOT/pi/models.template.json"
 TARGET="$PI_DIR/models.json"
-if [[ -f "$TEMPLATE" && ( ! -f "$TARGET" || -n "${QSEAN_GATEWAY_KEY:-}" || -n "${OPENCODE2API_GATEWAY_KEY:-}" ) ]]; then
+if [[ -f "$TEMPLATE" && ( ! -f "$TARGET" || -n "${QSEAN_GATEWAY_KEY:-}" || -n "${OPENCODE_FREE_GATEWAY_KEY:-}" ) ]]; then
   echo ""
   echo "=== Writing models.json ==="
   PYTHON_BIN=""
@@ -76,7 +76,7 @@ if [[ -f "$TEMPLATE" && ( ! -f "$TARGET" || -n "${QSEAN_GATEWAY_KEY:-}" || -n "$
     echo "WARNING: python not found; copy models.template.json to models.json manually." >&2
   fi
   if [[ -n "$PYTHON_BIN" ]]; then
-    QSEAN_GATEWAY_KEY="${QSEAN_GATEWAY_KEY:-}" OPENCODE2API_GATEWAY_KEY="${OPENCODE2API_GATEWAY_KEY:-}" "$PYTHON_BIN" - "$TEMPLATE" "$TARGET" <<'PY'
+    QSEAN_GATEWAY_KEY="${QSEAN_GATEWAY_KEY:-}" OPENCODE_FREE_GATEWAY_KEY="${OPENCODE_FREE_GATEWAY_KEY:-}" "$PYTHON_BIN" - "$TEMPLATE" "$TARGET" <<'PY'
 import json
 import os
 import pathlib
@@ -86,7 +86,7 @@ source, target = map(pathlib.Path, sys.argv[1:])
 data = json.loads(source.read_text())
 keys = {
     "agent2api": os.environ.get("QSEAN_GATEWAY_KEY", ""),
-    "opencode": os.environ.get("OPENCODE2API_GATEWAY_KEY", ""),
+    "opencode-free": os.environ.get("OPENCODE_FREE_GATEWAY_KEY", ""),
 }
 for name, key in keys.items():
     if key and name in data.get("providers", {}):

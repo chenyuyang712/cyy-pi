@@ -297,6 +297,22 @@
           ]
         }
       ]
+    },
+    "opencode-free": {
+      "baseUrl": "https://oc2api.youki.me/v1",
+      "api": "openai-completions",
+      "apiKey": "${OPENCODE_FREE_GATEWAY_KEY}",
+      "models": [
+        {"id":"beam-free","name":"beam-free","contextWindow":1048576,"maxTokens":32768,"reasoning":true},
+        {"id":"big-pickle","name":"big-pickle","contextWindow":200000,"maxTokens":32768,"reasoning":true},
+        {"id":"deepseek-v4.1-flash-free","name":"deepseek-v4.1-flash-free","contextWindow":200000,"maxTokens":32768,"reasoning":true},
+        {"id":"glm-5.3-flash-free","name":"glm-5.3-flash-free","contextWindow":200000,"maxTokens":32768,"reasoning":true},
+        {"id":"longcat-2.5-preview-free","name":"longcat-2.5-preview-free","contextWindow":1000000,"maxTokens":32768,"reasoning":true},
+        {"id":"mimo-v2.6-flash-free","name":"mimo-v2.6-flash-free","contextWindow":200000,"maxTokens":32768,"reasoning":true},
+        {"id":"minimax-m3.1-flash-free","name":"minimax-m3.1-flash-free","contextWindow":1000000,"maxTokens":32768,"reasoning":true},
+        {"id":"nemotron-3.5-lightning-free","name":"nemotron-3.5-lightning-free","contextWindow":262144,"maxTokens":32768,"reasoning":true},
+        {"id":"nemotron-3.5-super-vl-free","name":"nemotron-3.5-super-vl-free","contextWindow":1048576,"maxTokens":32768,"reasoning":true}
+      ]
     }
   }
 }
