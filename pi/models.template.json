@@ -298,10 +298,10 @@
         }
       ]
     },
-    "opencode-free": {
+    "youki-free": {
       "baseUrl": "https://oc2api.youki.me/v1",
       "api": "openai-completions",
-      "apiKey": "${OPENCODE_FREE_GATEWAY_KEY}",
+      "apiKey": "${YOUKI_FREE_GATEWAY_KEY}",
       "models": [
         {"id":"beam-free","name":"beam-free","contextWindow":1048576,"maxTokens":32768,"reasoning":true},
         {"id":"big-pickle","name":"big-pickle","contextWindow":200000,"maxTokens":32768,"reasoning":true},

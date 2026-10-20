@@ -10,8 +10,8 @@ opencode2api gateways, restorable on macOS, Linux, and Windows machines.
 - `packages.txt` — installed Pi package sources
 - `pi/themes/` — the `ghostty-muted` theme
 - `pi/models.template.json` — sanitized agent2api/opencode2api model catalog
-  (27 Agent2api models plus 9 live-tested models from the self-hosted
-  `opencode-free` gateway; `apiKey` values are environment-variable placeholders)
+  (27 Agent2api models plus 9 live-tested models from the separate
+  `youki-free` upstream; `apiKey` values are environment-variable placeholders)
 - `scripts/restore.sh` — restore for macOS / Linux / Git Bash
 - `scripts/restore.ps1` — restore for native Windows (PowerShell)
 
@@ -30,8 +30,9 @@ opencode2api gateways, restorable on macOS, Linux, and Windows machines.
 - The current anonymous opencode2api models were excluded because live probes
   returned HTTP 403; add a Zen/Go key before adding that provider back.
 - The shared default model is `agent2api/auto`.
-- The self-hosted free-model gateway is available as `opencode-free` at
-  `https://oc2api.youki.me/v1`; restore it with `OPENCODE_FREE_GATEWAY_KEY`.
+- The separate free-model upstream is available as `youki-free` at
+  `https://oc2api.youki.me/v1`; restore it with `YOUKI_FREE_GATEWAY_KEY`.
+- This is distinct from the server-side `opencode2api` gateway.
 
 ## Restore on Windows (native)
 
