@@ -10,7 +10,7 @@ opencode2api gateways, restorable on macOS, Linux, and Windows machines.
 - `packages.txt` — installed Pi package sources
 - `pi/themes/` — the `ghostty-muted` theme
 - `pi/models.template.json` — sanitized agent2api/opencode2api model catalog
-  (44 Agent2api models and 9 OpenCode models; `apiKey` values are environment-variable placeholders)
+  (27 Agent2api models that passed live probes; `apiKey` values are environment-variable placeholders)
 - `scripts/restore.sh` — restore for macOS / Linux / Git Bash
 - `scripts/restore.ps1` — restore for native Windows (PowerShell)
 
@@ -26,10 +26,9 @@ opencode2api gateways, restorable on macOS, Linux, and Windows machines.
 - opencode2api API: `https://opencode2api.chenyuyang.tech/v1`
 - The agent2api server must be populated with your own provider accounts through
   its management panel.
-- The initial opencode2api server uses anonymous mode for smoke testing; add
-  your own Zen/Go key and disable anonymous mode before relying on it.
-- The shared default model is `agent2api/auto`; the OpenCode catalog remains
-  available as a fallback.
+- The current anonymous opencode2api models were excluded because live probes
+  returned HTTP 403; add a Zen/Go key before adding that provider back.
+- The shared default model is `agent2api/auto`.
 
 ## Restore on Windows (native)
 
