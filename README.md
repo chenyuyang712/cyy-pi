@@ -9,7 +9,7 @@ opencode2api gateways, restorable on macOS, Linux, and Windows machines.
 - `pi/mcp.json` — MCP server configuration (Playwright)
 - `packages.txt` — installed Pi package sources
 - `pi/themes/` — the `ghostty-muted` theme
-- `pi/models.template.json` — sanitized agent2api/opencode2api model catalog
+- `pi/models.template.json` — sanitized agent2api/youki-free model catalog
   (27 Agent2api models plus 9 live-tested models from the separate
   `youki-free` upstream; `apiKey` values are environment-variable placeholders)
 - `scripts/restore.sh` — restore for macOS / Linux / Git Bash
@@ -59,7 +59,7 @@ Custom agent directory: `.\scripts\restore.ps1 -PiDir "D:\path\.pi\agent"`
 ```bash
 git clone https://github.com/chenyuyang712/cyy-pi.git
 cd cyy-pi
-QSEAN_GATEWAY_KEY='...' OPENCODE2API_GATEWAY_KEY='...' ./scripts/restore.sh
+QSEAN_GATEWAY_KEY='...' YOUKI_FREE_GATEWAY_KEY='...' ./scripts/restore.sh
 ```
 
 ## Cross-platform notes
@@ -86,4 +86,4 @@ QSEAN_GATEWAY_KEY='...' OPENCODE2API_GATEWAY_KEY='...' ./scripts/restore.sh
 
 1. Restart Pi or run `/reload` inside Pi.
 2. Run `/settings` to confirm **Theme = ghostty-muted**.
-3. Run `/models` to confirm the agent2api and opencode2api providers work.
+3. Run `/models` to confirm the `agent2api` and `youki-free` providers work.
