@@ -41,7 +41,7 @@ Requirements: Node.js ≥ 22.19, Git for Windows (Bash), optional Python.
 ```powershell
 git clone https://github.com/chenyuyang712/cyy-pi.git
 cd cyy-pi
-powershell -ExecutionPolicy Bypass -File scripts\restore.ps1 -QseanKey "..." -OpencodeKey "..."
+powershell -ExecutionPolicy Bypass -File scripts\restore.ps1 -QseanKey "..." -YoukiFreeKey "..."
 ```
 
 The script:

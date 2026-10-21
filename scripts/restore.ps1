@@ -4,15 +4,15 @@
 # Usage (in PowerShell):
 #   .\scripts\restore.ps1
 #   .\scripts\restore.ps1 -PiDir "D:\somewhere\.pi\agent"
-#   .\scripts\restore.ps1 -QseanKey "..." -OpencodeKey "..."
+#   .\scripts\restore.ps1 -QseanKey "..." -YoukiFreeKey "..."
 #   .\scripts\restore.ps1 -SkipPackages             # skip `pi install`
 #
-# Or from Git Bash:  QSEAN_GATEWAY_KEY=... OPENCODE2API_GATEWAY_KEY=... powershell -ExecutionPolicy Bypass -File scripts/restore.ps1
+# Or from Git Bash:  QSEAN_GATEWAY_KEY=... YOUKI_FREE_GATEWAY_KEY=... powershell -ExecutionPolicy Bypass -File scripts/restore.ps1
 
 param(
     [string]$PiDir = "",
     [string]$QseanKey = "",
-    [string]$OpencodeKey = "",
+    [string]$YoukiFreeKey = "",
     [switch]$SkipPackages
 )
 
@@ -86,13 +86,13 @@ Write-Host "  settings.json, mcp.json, themes -> OK"
 # ---- 3. models.json from template (+ optional API key) ----
 $template = Join-Path $repoRoot "pi\models.template.json"
 $target   = Join-Path $PiDir "models.json"
-$needModels = (Test-Path $template) -and (-not (Test-Path $target) -or $QseanKey -or $OpencodeKey)
+$needModels = (Test-Path $template) -and (-not (Test-Path $target) -or $QseanKey -or $YoukiFreeKey)
 
 if ($needModels) {
     Write-Host "`n=== Writing models.json ==="
     $models = Get-Content $template -Raw -Encoding UTF8 | ConvertFrom-Json
-    if ($QseanKey) { $models.providers.denni.apiKey = $QseanKey }
-    if ($OpencodeKey) { $models.providers.opencode.apiKey = $OpencodeKey }
+    if ($QseanKey) { $models.providers.agent2api.apiKey = $QseanKey }
+    if ($YoukiFreeKey) { $models.providers.'youki-free'.apiKey = $YoukiFreeKey }
     Write-Host "  gateway keys written into models.json (file contains secrets, do not commit it)"
     $modelsJson = $models | ConvertTo-Json -Depth 32
     $modelsJson = [regex]::Replace($modelsJson, "\\u([0-9a-fA-F]{4})", {
