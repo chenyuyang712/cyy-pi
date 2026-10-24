@@ -4,5 +4,6 @@
     "git:github.com/obra/superpowers"
   ],
   "theme": "ghostty",
-  "hideThinkingBlock": true
+  "hideThinkingBlock": true,
+  "defaultTools": ["+grep", "+find"]
 }

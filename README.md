@@ -6,11 +6,14 @@
 
 | 路径 | 说明 |
 |---|---|
-| `settings.json` | 全局设置：主题、已安装包、UI 选项 |
+| `settings.json` | 全局设置：主题、已安装包、UI 选项、`defaultTools` |
+| `AGENTS.md` | 全局纪律（Coding Loop）：执行循环、约束、工具纪律 |
 | `models.json` | 自定义 model provider（**API key 已脱敏为环境变量**） |
 | `mcp.json` | MCP 服务器配置（playwright） |
 | `themes/ghostty.json` | 自定义主题 |
 | `extensions/statusline.ts` | 状态栏扩展：TPS、token 用量、上下文窗口 |
+| `agents/*.md` | subagent 定义：scout / planner / reviewer / worker |
+| `prompts/*.md` | 工作流预设：`/implement`、`/scout-and-plan`、`/implement-and-review` |
 
 有意排除：`sessions/`（会话历史）、`models-store.json`（远程模型目录缓存）、`git/`（包缓存）、`auth.json`（凭证）。
 
@@ -21,8 +24,8 @@ git clone https://github.com/chenyuyang712/cyy-pi ~/cyy-pi
 cd ~/cyy-pi
 
 # 1. 配置文件
-cp settings.json mcp.json models.json ~/.pi/agent/
-cp -r themes extensions ~/.pi/agent/
+cp settings.json mcp.json models.json AGENTS.md ~/.pi/agent/
+cp -r themes extensions agents prompts ~/.pi/agent/
 
 # 2. 设置 API key（models.json 里以 $VAR 形式引用）
 export CYY_A2API_API_KEY='sk-a2a-...'
@@ -36,6 +39,11 @@ Pi 的 `apiKey` 字段支持 `"$ENV_NAME"` 形式的环境变量插值，所以�
 # 3. 还原扩展包
 pi install git:github.com/obra/superpowers
 
+# 3b. subagent 扩展来自 pi 自带示例（不入库，体积大且随 pi 版本更新）
+SRC="$(npm root -g)/@earendil-works/pi-coding-agent/examples/extensions/subagent"
+mkdir -p ~/.pi/agent/extensions/subagent
+cp "$SRC"/index.ts "$SRC"/agents.ts ~/.pi/agent/extensions/subagent/
+
 # 4. 验证
 pi list          # 应显示 superpowers
 pi mcp list      # 应显示 playwright
@@ -48,3 +56,5 @@ pi mcp list      # 应显示 playwright
 - 本仓库为 **public**，因此 `models.json` 中的真实密钥已被替换为占位符。切勿把明文 key 提交进来。
 - `models-store.json` 不入库：Pi 启动时会向 `https://pi.dev/api/models/providers/<id>` 重新拉取模型目录，属可再生缓存。
 - `sessions/` 不入库：包含完整对话历史与敏感内容，且体积持续增长。
+- `agents/*.md` 已去掉上游写死的 `model:`（`claude-sonnet-4-5` / `claude-haiku-4-5`），改为继承派发会话的模型，否则本机 provider 下会直接失败。要省钱可把 `scout` 固定为 `ocgo/claude-haiku-5-5`。
+- `subagent` 扩展本体不入库，从 pi 自带 `examples/extensions/subagent` 复制即可。
