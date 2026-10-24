@@ -1,0 +1,13 @@
+# 凭证与运行时状态（绝不提交）
+auth.json
+models-store.json
+settings.json.bak
+sessions/
+*.log
+
+# 包缓存：用 `pi install` 还原，无需入库
+git/
+
+# 系统垃圾
+.DS_Store
+node_modules/

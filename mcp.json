@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "description": "Drive a real Chromium/Firefox/WebKit browser: navigate pages, click, type, fill forms, take screenshots and snapshots, read console messages and network requests. Use for UI testing, scraping, and verifying how a web app renders.",
+      "exposure": "codemode"
+    }
+  }
+}

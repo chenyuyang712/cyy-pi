@@ -1,0 +1,212 @@
+{
+  "providers": {
+    "cyy-a2api": {
+      "name": "cyy-a2api",
+      "baseUrl": "https://a2api.chenyuyang.tech/v1",
+      "api": "openai-completions",
+      "apiKey": "$CYY_A2API_API_KEY",
+      "models": [
+        {
+          "id": "deepseek-v4.1-flash",
+          "name": "deepseek-v4.1-flash",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 200000,
+          "maxTokens": 32800
+        }
+      ]
+    },
+    "ocgo": {
+      "name": "OpenCode Go",
+      "baseUrl": "https://opencode.ai/zen/go/v1",
+      "api": "openai-completions",
+      "apiKey": "$OPENCODE_GO_API_KEY",
+      "models": [
+        {
+          "id": "beam-free",
+          "name": "beam-free",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": "max"
+          }
+        },
+        {
+          "id": "claude-haiku-5-5",
+          "name": "claude-haiku-5-5",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": "max"
+          }
+        },
+        {
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "maxTokensField": "max_tokens",
+            "requiresReasoningContentOnAssistantMessages": true,
+            "thinkingFormat": "deepseek"
+          },
+          "id": "deepseek-v4.1-flash",
+          "name": "deepseek-v4.1-flash",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 384000,
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": null,
+            "medium": null,
+            "high": "high",
+            "max": "max"
+          }
+        },
+        {
+          "id": "gemini-4-argon",
+          "name": "gemini-4-argon",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          }
+        },
+        {
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "maxTokensField": "max_tokens"
+          },
+          "id": "glm-5.3",
+          "name": "glm-5.3",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": null,
+            "medium": null,
+            "high": "high",
+            "xhigh": null,
+            "max": "max"
+          }
+        },
+        {
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "maxTokensField": "max_tokens"
+          },
+          "id": "glm-5.3-flash",
+          "name": "glm-5.3-flash",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "thinkingLevelMap": {}
+        },
+        {
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "maxTokensField": "max_tokens"
+          },
+          "id": "kimi-k3.1-pro",
+          "name": "kimi-k3.1-pro",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "thinkingLevelMap": {}
+        },
+        {
+          "id": "mimo-v2.6-flash",
+          "name": "mimo-v2.6-flash",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "omen-alpha",
+          "name": "omen-alpha",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 128000,
+          "maxTokens": 16384
+        },
+        {
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "maxTokensField": "max_tokens"
+          },
+          "id": "qwen3.8-max",
+          "name": "qwen3.8-max",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 983616,
+          "maxTokens": 131072,
+          "thinkingLevelMap": {}
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "lastChangelogVersion": "1.4.0",
+  "packages": [
+    "git:github.com/obra/superpowers"
+  ],
+  "theme": "ghostty",
+  "hideThinkingBlock": true
+}
